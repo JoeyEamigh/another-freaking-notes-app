@@ -1,0 +1,9 @@
+{
+  "name": "dto",
+  "version": "0.0.0",
+  "private": true,
+  "main": "index.js",
+  "dependencies": {
+    "prismas": "0.0.1"
+  }
+}

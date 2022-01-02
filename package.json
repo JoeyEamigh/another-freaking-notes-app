@@ -1,15 +1,18 @@
 {
-  "name": "turborepo-basic-shared",
-  "version": "0.0.0",
+  "name": "another-freaking-notes-app",
+  "version": "0.0.1",
   "private": true,
+  "license": "MIT",
   "workspaces": [
     "apps/*",
     "packages/*"
   ],
   "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev --parallel",
-    "lint": "turbo run lint",
+    "build": "FORCE_COLOR=1 turbo run build",
+    "dev": "FORCE_COLOR=1 turbo run dev --parallel",
+    "lint": "FORCE_COLOR=1 turbo run lint",
+    "test": "FORCE_COLOR=1 turbo run test",
+    "deploy": "FORCE_COLOR=1 turbo run deploy",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
@@ -30,8 +33,21 @@
       "lint": {
         "outputs": []
       },
+      "test": {
+        "dependsOn": [
+          "build"
+        ],
+        "outputs": []
+      },
       "dev": {
         "cache": false
+      },
+      "deploy": {
+        "dependsOn": [
+          "lint",
+          "build",
+          "test"
+        ]
       }
     }
   },

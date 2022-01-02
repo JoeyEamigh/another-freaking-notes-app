@@ -1,0 +1,12 @@
+{
+  "name": "prismas",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "prisma": "^3.7.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^3.7.0"
+  }
+}
