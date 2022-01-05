@@ -3,11 +3,16 @@ import { JwtService } from '@nestjs/jwt';
 import { AuthService } from './auth.service';
 import { Reflector } from '@nestjs/core';
 import { IS_PUBLIC_KEY } from './auth.decorator';
-import { environment } from 'src/environment';
+import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
-  constructor(private authService: AuthService, private jwtService: JwtService, private reflector: Reflector) {}
+  constructor(
+    private authService: AuthService,
+    private jwtService: JwtService,
+    private reflector: Reflector,
+    private readonly config: ConfigService,
+  ) {}
   private logger = new Logger('AuthGuard');
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
@@ -28,7 +33,7 @@ export class AuthGuard implements CanActivate {
 
     try {
       const decoded: { id: string; verification: string; session: string } = await this.jwtService.verifyAsync(token, {
-        secret: environment.accessSecret,
+        secret: this.config.get('ACCESS_SECRET'),
       });
 
       const session = await this.authService.getSession(decoded.session);

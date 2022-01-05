@@ -1,7 +1,7 @@
 import { createParamDecorator, ExecutionContext, SetMetadata } from '@nestjs/common';
 import useragent from 'useragent';
 
-export const User = createParamDecorator((data: unknown, ctx: ExecutionContext) => {
+export const UserDecorator = createParamDecorator((data: unknown, ctx: ExecutionContext) => {
   const request = ctx.switchToHttp().getRequest();
   return request.user;
 });

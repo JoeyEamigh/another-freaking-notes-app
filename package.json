@@ -13,14 +13,32 @@
     "lint": "FORCE_COLOR=1 turbo run lint",
     "test": "FORCE_COLOR=1 turbo run test",
     "deploy": "FORCE_COLOR=1 turbo run deploy",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "email": "FORCE_COLOR=1 turbo run email",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "clean": "rimraf apps/**/dist apps/**/.next packages/**/dist",
+    "deepclean": "rimraf node_modules packages/**/node_modules apps/**/node_modules packages/**/dist packages/**/.next packages/**/.turbo"
   },
   "devDependencies": {
     "prettier": "^2.5.1",
-    "turbo": "latest"
+    "rimraf": "^3.0.2",
+    "turbo": "^1.0.24"
   },
   "turbo": {
     "pipeline": {
+      "email": {
+        "outputs": []
+      },
+      "api": {
+        "dependsOn": [
+          "prismas",
+          "dto"
+        ]
+      },
+      "api#dev": {
+        "dependsOn": [
+          "prismas#build"
+        ]
+      },
       "build": {
         "dependsOn": [
           "^build"
@@ -53,6 +71,6 @@
   },
   "engines": {
     "npm": ">=7.0.0",
-    "node": ">=14.0.0"
+    "node": ">=16.0.0"
   }
 }

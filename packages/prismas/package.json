@@ -1,10 +1,24 @@
 {
   "name": "prismas",
   "version": "0.0.1",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "license": "MIT",
+  "private": true,
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "npx -y prisma generate && yarn tsc --build",
+    "push": "npx -y prisma db push",
+    "pull": "npx -y prisma db pull",
+    "migrate": "npx -y prisma migrate dev",
+    "reset": "npx -y prisma migrate reset && npx -y prisma db push",
+    "prisma": "npx -y prisma",
+    "studio": "npx -y prisma studio -n 0.0.0.0",
+    "dev": "npx -y prisma studio -n 0.0.0.0"
+  },
   "devDependencies": {
-    "prisma": "^3.7.0"
+    "prisma": "^3.7.0",
+    "rimraf": "^3.0.2"
   },
   "dependencies": {
     "@prisma/client": "^3.7.0"

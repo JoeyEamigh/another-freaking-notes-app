@@ -3,9 +3,13 @@ import { Request, Response, NextFunction } from 'express';
 
 @Injectable()
 export class LogMiddleware implements NestMiddleware {
-  private logger = new Logger('HTTP');
+  private readonly logger = new Logger('HTTP');
 
   use(request: Request, response: Response, next: NextFunction): void {
+    if (process.env.ENV === 'development') {
+      console.log('body:', request.body);
+    }
+
     const { method, originalUrl } = request;
     const ip = request.ip;
 

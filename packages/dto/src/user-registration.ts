@@ -1,9 +1,13 @@
 import { AuthType } from 'prismas';
+import { IsEmail, IsNotEmpty, Equals } from 'class-validator';
 
-export interface UserRegistration {
-  fname: string;
-  lname: string;
+export class UserRegistration {
+  @Equals('LOCAL')
   authType: AuthType;
+
+  @IsEmail()
   email: string;
+
+  @IsNotEmpty()
   password: string;
 }

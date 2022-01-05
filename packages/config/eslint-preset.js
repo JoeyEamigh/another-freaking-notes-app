@@ -1,11 +1,13 @@
 module.exports = {
-  extends: ["next", "prettier"],
+  extends: ['next', 'prettier', 'plugin:prettier/recommended'],
+  plugins: ['prettier'],
   settings: {
     next: {
-      rootDir: ["apps/*/", "packages/*/"],
+      rootDir: ['apps/*/', 'packages/*/'],
     },
   },
   rules: {
-    "no-html-link-for-pages": "off",
+    'no-html-link-for-pages': 'off',
+    'prettier/prettier': 'warn',
   },
 };

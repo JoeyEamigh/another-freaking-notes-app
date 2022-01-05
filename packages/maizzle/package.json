@@ -1,0 +1,16 @@
+{
+  "name": "maizzle",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "local": "maizzle build",
+    "preemail": "rimraf dist && ln -sf ../../node_modules node_modules",
+    "email": "maizzle build production && cd dist && for f in *.html; do cp -- \"$f\" \"../../../apps/api/src/assets/emails/${f%.html}.hbs\"; done",
+    "postemail": "rimraf node_modules",
+    "preserve": "rimraf dist && ln -sf ../../node_modules node_modules",
+    "serve": "maizzle serve"
+  },
+  "devDependencies": {
+    "@maizzle/framework": "^3.7.2"
+  }
+}
