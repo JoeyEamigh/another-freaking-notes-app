@@ -7,6 +7,7 @@ import { FaGithub, FaTwitter } from 'react-icons/fa';
 import Link from 'next/link';
 import { FormEvent, useState } from 'react';
 import { NextRouter, useRouter } from 'next/router';
+import LogoSmall from '../components/general/logo-small';
 
 const stats = [
   { label: 'Created', value: '2022' },
@@ -37,20 +38,16 @@ export default function Home() {
           <div className="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl lg:grid lg:grid-cols-2 lg:gap-24">
             <div>
               <div>
-                <img
-                  className="h-11 w-auto"
-                  src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=500"
-                  alt="Workflow"
-                />
+                <LogoSmall className="h-44 max-w-full" />
               </div>
-              <div className="mt-20">
+              <div className="mt-10">
                 <div>
                   <Link href="/blog/whats-new-in-v1">
                     <a className="inline-flex space-x-4">
-                      <span className="rounded bg-indigo-50 px-2.5 py-1 text-xs font-semibold text-indigo-500 tracking-wide uppercase">
+                      <span className="rounded bg-primary-50 px-2.5 py-1 text-xs font-semibold text-primary-500 tracking-wide uppercase">
                         What&apos;s new
                       </span>
-                      <span className="inline-flex items-center text-sm font-medium text-indigo-500 space-x-1">
+                      <span className="inline-flex items-center text-sm font-medium text-primary-500 space-x-1">
                         <span>Just shipped version 1.0.0</span>
                         <ChevronRightIcon className="h-5 w-5" aria-hidden="true" />
                       </span>
@@ -73,7 +70,7 @@ export default function Home() {
                     <input
                       id="hero-email"
                       type="email"
-                      className="block w-full border border-gray-300 rounded-md px-5 py-3 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                      className="block w-full border border-gray-300 rounded-md px-5 py-3 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:border-primary-500 focus:ring-primary-500"
                       placeholder="Enter your email"
                       value={email}
                       onChange={e => setEmail(e.target.value)}
@@ -81,7 +78,7 @@ export default function Home() {
                   </div>
                   <div className="mt-4 sm:mt-0 sm:ml-3">
                     <Link href={`/register?email=${email}`}>
-                      <a className="block w-full rounded-md border border-transparent px-5 py-3 bg-indigo-500 text-base font-medium text-white shadow hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:px-10">
+                      <a className="block w-full rounded-md border border-transparent px-5 py-3 bg-primary-500 text-base font-medium text-white shadow hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 sm:px-10 text-center">
                         Get Started
                       </a>
                     </Link>
@@ -98,7 +95,7 @@ export default function Home() {
                     </div>
                     <div className="min-w-0 flex-1 pl-5 py-1 text-sm text-gray-500 sm:py-3">
                       <span className="font-medium text-gray-900">Rated 5 stars</span> by{' '}
-                      <span className="font-medium text-indigo-500">literally no one</span>
+                      <span className="font-medium text-primary-500">literally no one</span>
                     </div>
                   </div>
                 </div>
@@ -186,13 +183,13 @@ function Testimonial() {
             {/* Testimonial card*/}
             <div className="relative pb-10 rounded-2xl shadow-xl overflow-hidden pt-80">
               <Image className="absolute inset-0 h-full w-full object-cover" src={joey} alt="" layout="fill" />
-              <div className="absolute inset-0 bg-indigo-500 mix-blend-multiply" />
-              <div className="absolute inset-0 bg-gradient-to-t from-indigo-600 via-indigo-600 opacity-90" />
+              <div className="absolute inset-0 bg-primary-500 mix-blend-multiply" />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary-600 via-primary-600 opacity-90" />
               <div className="relative px-8">
                 <blockquote className="mt-8">
                   <div className="relative text-lg font-medium text-white md:flex-grow">
                     <svg
-                      className="absolute top-0 left-0 transform -translate-x-3 -translate-y-2 h-8 w-8 text-indigo-400"
+                      className="absolute top-0 left-0 transform -translate-x-3 -translate-y-2 h-8 w-8 text-primary-400"
                       fill="currentColor"
                       viewBox="0 0 32 32"
                       aria-hidden="true"
@@ -203,7 +200,7 @@ function Testimonial() {
                   </div>
 
                   <footer className="mt-4">
-                    <p className="text-base font-semibold text-indigo-200">
+                    <p className="text-base font-semibold text-primary-200">
                       Joey Eamigh, Creator of Another Freaking Notes App
                     </p>
                   </footer>
@@ -244,7 +241,7 @@ function Testimonial() {
               ))}
             </dl>
             <div className="mt-10">
-              <a href="#" className="text-base font-medium text-indigo-500">
+              <a href="#" className="text-base font-medium text-primary-500">
                 Learn more about how we&apos;re not changing anything&nbsp;&rarr;
               </a>
             </div>
@@ -277,7 +274,7 @@ function CTA({ email, onChange, router }: { email: string; onChange: (email: str
         </svg>
       </div>
       <div className="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8">
-        <div className="relative rounded-2xl px-6 py-10 bg-indigo-500 overflow-hidden shadow-xl sm:px-12 sm:py-20">
+        <div className="relative rounded-2xl px-6 py-10 bg-primary-500 overflow-hidden shadow-xl sm:px-12 sm:py-20">
           <div aria-hidden="true" className="absolute inset-0 -mt-72 sm:-mt-32 md:mt-0">
             <svg
               className="absolute inset-0 h-full w-full"
@@ -287,12 +284,12 @@ function CTA({ email, onChange, router }: { email: string; onChange: (email: str
               viewBox="0 0 1463 360"
             >
               <path
-                className="text-indigo-400 text-opacity-40"
+                className="text-primary-400 text-opacity-40"
                 fill="currentColor"
                 d="M-82.673 72l1761.849 472.086-134.327 501.315-1761.85-472.086z"
               />
               <path
-                className="text-indigo-600 text-opacity-40"
+                className="text-primary-600 text-opacity-40"
                 fill="currentColor"
                 d="M-217.088 544.086L1544.761 72l134.327 501.316-1761.849 472.086z"
               />
@@ -303,7 +300,7 @@ function CTA({ email, onChange, router }: { email: string; onChange: (email: str
               <h2 className="text-3xl font-extrabold text-white tracking-tight sm:text-4xl">
                 What are you waiting for?
               </h2>
-              <p className="mt-6 mx-auto max-w-2xl text-lg text-indigo-100">
+              <p className="mt-6 mx-auto max-w-2xl text-lg text-primary-100">
                 Enter your email in the box below to get started! We won&apos;t share your email with anyone or even
                 email you frankly because we are cheap and email marketing services cost money. Also we don&apos;t care.
               </p>
@@ -316,7 +313,7 @@ function CTA({ email, onChange, router }: { email: string; onChange: (email: str
                 <input
                   id="cta-email"
                   type="email"
-                  className="block w-full border border-transparent rounded-md px-5 py-3 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-500"
+                  className="block w-full border border-transparent rounded-md px-5 py-3 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary-500"
                   placeholder="Enter your email"
                   value={email}
                   onChange={e => onChange(e.target.value)}
@@ -324,7 +321,7 @@ function CTA({ email, onChange, router }: { email: string; onChange: (email: str
               </div>
               <div className="mt-4 sm:mt-0 sm:ml-3">
                 <Link href={`/register?email=${email}`}>
-                  <a className="block w-full rounded-md border border-transparent px-5 py-3 bg-gray-900 text-base font-medium text-white shadow hover:bg-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-500 sm:px-10">
+                  <a className="block text-center w-full rounded-md border border-transparent px-5 py-3 bg-gray-900 text-base font-medium text-white shadow hover:bg-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary-500 sm:px-10">
                     Get to it
                   </a>
                 </Link>
